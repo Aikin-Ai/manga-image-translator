@@ -1,5 +1,7 @@
-from typing import List, Dict
+from typing import Dict, List
+
 from omegaconf import OmegaConf
+
 
 class ConfigGPT:
     _CHAT_SYSTEM_TEMPLATE = (
@@ -9,6 +11,7 @@ class ConfigGPT:
         'without referencing machine translations. '
         'You must only translate the story, '
         'never interpret it. '
+        "If there are sounds, don't repeat them more than three times. "
         'If there is any issue in the text, '
         'output it as is.\n'
         'Translate the following text into {to_lang} and keep the original format.\n'
@@ -31,12 +34,14 @@ class ConfigGPT:
             (
                 '<|1|>恥ずかしい… 目立ちたくない… 私が消えたい…\n'
                 '<|2|>きみ… 大丈夫⁉\n'
-                '<|3|>なんだこいつ 空気読めて ないのか…？'
+                '<|3|>なんだこいつ 空気読めて ないのか…？\n'
+                '<|4|>声やべー'
             ),
             (
                 "<|1|>I'm embarrassed... I don't want to stand out... I want to disappear...\n"
                 "<|2|>Are you okay?\n"
-                "<|3|>What's wrong with this guy? Can't he read the situation...?"
+                "<|3|>What's wrong with this guy? Can't he read the situation...?\n"
+                "<|4|>So loud~"
             )
         ]
     }

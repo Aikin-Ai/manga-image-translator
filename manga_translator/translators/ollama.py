@@ -51,7 +51,7 @@ class OllamaTranslator(ConfigGPT, CommonTranslator):
     _RATELIMIT_RETRY_ATTEMPTS = 3  # 在放弃之前重试速率限制请求的次数
 
     # 最大令牌数量，用于控制处理的文本长度
-    _MAX_TOKENS = 4096
+    _MAX_TOKENS = 1024
 
     # 是否返回原始提示，用于控制输出内容
     _RETURN_PROMPT = False

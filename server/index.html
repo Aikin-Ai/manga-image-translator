@@ -203,14 +203,14 @@
         detectionResolution: '1536',
         textDetector: 'default',
         renderTextDirection: 'auto',
-        translator: 'youdao',
-        validTranslators: ['youdao', 'baidu', 'deepl', 'papago', 'caiyun', 'offline', 'gpt3.5', 'deepseek', 'none'],
+        translator: 'sugoi',
+        validTranslators: ['sugoi', 'ollama', 'gpt4', 'deepseek', 'offline', 'none', 'original'],
         getTranslatorName(key) {
             if (key === 'none')
                 return "No Text"
             return key ? key[0].toUpperCase() + key.slice(1) : "";
         },
-        targetLanguage: 'CHS',
+        targetLanguage: 'ENG',
         ondrop(e) {
             const file = e.dataTransfer?.files?.[0]
             if (file && acceptTypes.includes(file.type)) {
@@ -314,11 +314,22 @@
                     "detection_size": ${this.detectionResolution}
                 },
                 "render": {
+                    "renderer": "manga2eng",
                     "direction": "${this.renderTextDirection}"
                 },
                 "translator": {
                     "translator": "${this.translator}",
                     "target_lang": "${this.targetLanguage}"
+                },
+                "upscale": {
+                    "upscaler": "esrgan",
+                    "revert_upscaling": true,
+                    "upscale_ratio": 2
+                },
+                "inpainter": {
+                    "inpainter": "lama_large",
+                    "inpainting_size": 2048,
+                    "inpainting_precision": "bf16"
                 }
             }`;
 
