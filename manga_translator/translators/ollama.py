@@ -233,6 +233,9 @@ class OllamaTranslator(ConfigGPT, CommonTranslator):
         if self.token_count_last:
             self.logger.info(f'Used {self.token_count_last} tokens (Total: {self.token_count})')
 
+        # replace ’ with '
+        translations = [t.replace('’', "'") for t in translations]
+
         return translations
 
     async def _request_translation(self, to_lang: str, prompt: str) -> str:
