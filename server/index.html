@@ -246,8 +246,8 @@
             detectionResolution: '1536',
             textDetector: 'default',
             renderTextDirection: 'auto',
-            translator: 'sugoi',
-            validTranslators: ['sugoi', 'ollama', 'openai', 'deepseek', 'offline', 'none', 'original'],
+            translator: 'custom_openai',
+            validTranslators: ['sugoi', 'custom_openai', 'openai', 'deepseek', 'offline', 'none', 'original'],
             getTranslatorName(key) {
                 if (key === 'none')
                     return "No Text"
@@ -259,7 +259,7 @@
             customUnclipRatio: 2.3,
             customBoxThreshold: 0.7,
             maskDilationOffset: 30,
-            inpainter: 'default',
+            inpainter: 'lama_large',
 
             ondrop(e) {
                 const file = e.dataTransfer?.files?.[0]
